@@ -54,12 +54,13 @@ class RidePrefService {
     print('Set current pref to $_currentPreference');
   }
 
-  // Past preferences
-  List<RidePreference> getPastPreferences() {
-    return repository.getPastPreferences();
-  }
+  /// commented out because it's not used
+  // // Past preferences
+  // List<RidePreference> getPastPreferences() {
+  //   return repository.getPastPreferences();
+  // }
 
-  void addPreference(RidePreference preference) {
-    return repository.addPreference(preference);
-  }
+  // void addPreference(RidePreference preference) {
+  //   return repository.addPreference(preference);
+  // }
 }
