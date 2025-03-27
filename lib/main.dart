@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'data/repository/local/local_ride_preferences_repository.dart';
 import 'data/repository/mock/mock_locations_repository.dart';
 import 'data/repository/mock/mock_rides_repository.dart';
 import 'service/locations_service.dart';
 import 'service/rides_service.dart';
 
-import 'data/repository/mock/mock_ride_preferences_repository.dart';
 import 'ui/provider/rides_preferences_provider.dart';
 import 'ui/screens/ride_pref/ride_pref_screen.dart';
 //import 'service/ride_prefs_service.dart';
@@ -25,7 +25,7 @@ void main() {
         ChangeNotifierProvider(
           create: (_) => RidesPreferencesProvider(
             repository:
-                MockRidePreferencesRepository(), // Pass the mock repository
+                LocalRidePreferencesRepository(), // Pass the mock repository
             ridesRepository: MockRidesRepository(),
           ),
         ),

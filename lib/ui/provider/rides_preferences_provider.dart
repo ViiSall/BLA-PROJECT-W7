@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../../data/repository/local/local_ride_preferences_repository.dart';
 import '../../model/ride/ride.dart';
 import '../../model/ride/ride_filter.dart';
 import '../../model/ride/ride_pref.dart';
-import '../../data/repository/ride_preferences_repository.dart';
 import '../../data/repository/rides_repository.dart';
 import 'async_value.dart';
 
 class RidesPreferencesProvider extends ChangeNotifier {
   RidePreference? _currentPreference;
   late AsyncValue<List<RidePreference>> pastPreferences;
-  final RidePreferencesRepository repository;
+  final LocalRidePreferencesRepository repository;
   final RidesRepository ridesRepository;
 
   RidesPreferencesProvider({
@@ -45,7 +45,7 @@ class RidesPreferencesProvider extends ChangeNotifier {
 
   Future<void> addPreference(RidePreference preference) async {
     try {
-      await repository.savePreference(preference);
+      await repository.addPastPreference(preference);
       await fetchPastPreferences();
     } catch (error) {
       pastPreferences = AsyncValue.error(error);
