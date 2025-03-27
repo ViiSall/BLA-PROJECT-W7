@@ -1,66 +1,67 @@
-import '../model/ride/ride_pref.dart';
-import '../repository/ride_preferences_repository.dart';
+// commented out because it's not used
 
-////
-///   This service handles:
-///   - The past ride preferences
-///   - The currennt ride preferences
-///
-class RidePrefService {
-  // Static private instance
-  static RidePrefService? _instance;
+// import '../model/ride/ride_pref.dart';
+// import '../data/repository/ride_preferences_repository.dart';
 
-  // Access to past preferences
-  final RidePreferencesRepository repository;
+// ////
+// ///   This service handles:
+// ///   - The past ride preferences
+// ///   - The currennt ride preferences
+// ///
+// class RidePrefService {
+//   // Static private instance
+//   static RidePrefService? _instance;
 
-  // The current preference
-  RidePreference? _currentPreference;
+//   // Access to past preferences
+//   final RidePreferencesRepository repository;
 
-  ///
-  /// Private constructor
-  ///
-  RidePrefService._internal(this.repository);
+//   // The current preference
+//   RidePreference? _currentPreference;
 
-  ///
-  /// Initialize
-  ///
-  static void initialize(RidePreferencesRepository repository) {
-    if (_instance == null) {
-      _instance = RidePrefService._internal(repository);
-    } else {
-      throw Exception("RidePreferencesService is already initialized.");
-    }
-  }
+//   ///
+//   /// Private constructor
+//   ///
+//   RidePrefService._internal(this.repository);
 
-  ///
-  /// Singleton accessor
-  ///
-  static RidePrefService get instance {
-    if (_instance == null) {
-      throw Exception(
-          "RidePreferencesService is not initialized. Call initialize() first.");
-    }
-    return _instance!;
-  }
+//   ///
+//   /// Initialize
+//   ///
+//   static void initialize(RidePreferencesRepository repository) {
+//     if (_instance == null) {
+//       _instance = RidePrefService._internal(repository);
+//     } else {
+//       throw Exception("RidePreferencesService is already initialized.");
+//     }
+//   }
 
-  // Current preference
-  RidePreference? get currentPreference {
-    print('Get  current  pref : $_currentPreference');
-    return _currentPreference;
-  }
+//   ///
+//   /// Singleton accessor
+//   ///
+//   static RidePrefService get instance {
+//     if (_instance == null) {
+//       throw Exception(
+//           "RidePreferencesService is not initialized. Call initialize() first.");
+//     }
+//     return _instance!;
+//   }
 
-  void setCurrentPreference(RidePreference preference) {
-    _currentPreference = preference;
-    print('Set current pref to $_currentPreference');
-  }
+//   // Current preference
+//   RidePreference? get currentPreference {
+//     print('Get  current  pref : $_currentPreference');
+//     return _currentPreference;
+//   }
 
-  /// commented out because it's not used
-  // // Past preferences
-  // List<RidePreference> getPastPreferences() {
-  //   return repository.getPastPreferences();
-  // }
+//   void setCurrentPreference(RidePreference preference) {
+//     _currentPreference = preference;
+//     print('Set current pref to $_currentPreference');
+//   }
 
-  // void addPreference(RidePreference preference) {
-  //   return repository.addPreference(preference);
-  // }
-}
+//   // Past preferences
+//   List<RidePreference> getPastPreferences() {
+//     return repository.getPastPreferences();
+//   }
+
+//   void addPreference(RidePreference preference) {
+//     return repository.addPreference(preference);
+//   }
+// }
